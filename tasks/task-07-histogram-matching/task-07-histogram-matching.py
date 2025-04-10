@@ -29,5 +29,9 @@ import numpy as np
 import scikitimage as ski
 
 def match_histograms_rgb(source_img: np.ndarray, reference_img: np.ndarray) -> np.ndarray:
-    # Your implementation here
-    pass
+
+    matched_img = ski.exposure.match_histograms(source_img, reference_img, channel_axis=2)
+
+    matched_img = matched_img.astype(np.uint8)
+    
+    return matched_img
